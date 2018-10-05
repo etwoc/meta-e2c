@@ -1,0 +1,16 @@
+#default network setup for e2c SC100
+#
+#
+[global]
+OfflineMode=false
+Description = e2c network configuration
+
+[Wired]
+Enable=true
+
+[WiFi]
+Enable=true
+
+[Bluetooth]
+Enable=true
+

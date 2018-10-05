@@ -1,0 +1,10 @@
+[Unit]
+Description=e2c Bluetooth setup service
+Before=bluetooth.target
+
+[Service]
+Type=forking
+ExecStart=/etc/bluetooth/e2c-bt
+
+[Install]
+WantedBy=multi-user.target
