@@ -33,18 +33,17 @@ DEPENDS += "lzop-native bc-native"
 
 PV .= "+git${SRCPV}"
 
-SRCBRANCH = "4.9-1.0.x-imx"
-SRCREV = "0e674a64b86e2bb00ab43f56104d3ea85dda0066"
+SRCBRANCH = "e2c"
+SRCREV = "c8b119d991b4a3fd9c64194a62277e023349aa60"
 
-SRC_URI = "git://github.com/Freescale/linux-fslc.git;branch=${SRCBRANCH}"
+SRC_URI = "git://github.com/etwoc/linux-fslc-e2c.git;branch=${SRCBRANCH}"
 
-SRC_URI += "file://defconfig"
-
-SRC_URI += "file://imx6ul-sc100.dts"
+KERNEL_DEFCONFIG_imx6ul-sc100 = "${S}/arch/arm/configs/sc100_defconfig"
 
 do_compile_prepend () {
-	cp ${WORKDIR}/imx6ul-sc100.dts \
-	${S}/arch/${ARCH}/boot/dts
+#	cp ${WORKDIR}/imx6ul-sc100.dts \
+#	${S}/arch/${ARCH}/boot/dts
+	cp ${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig	
 }
 
 LOCALVERSION_imx6ul-sc100 = "-mx6ul"
