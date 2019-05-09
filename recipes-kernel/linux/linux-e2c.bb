@@ -40,11 +40,10 @@ SRC_URI = "git://github.com/etwoc/linux-fslc-e2c.git;branch=${SRCBRANCH}"
 
 KERNEL_DEFCONFIG_imx6ul-sc100 = "${S}/arch/arm/configs/sc100_defconfig"
 
-do_compile_prepend () {
-#	cp ${WORKDIR}/imx6ul-sc100.dts \
-#	${S}/arch/${ARCH}/boot/dts
-	cp ${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig	
+do_copy_defconfig () {
+		cp -f ${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig
 }
+addtask copy_defconfig after do_patch before do_preconfigure
 
 LOCALVERSION_imx6ul-sc100 = "-mx6ul"
 
